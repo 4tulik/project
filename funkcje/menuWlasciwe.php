@@ -6,6 +6,8 @@ interface menuLewe {
 
     public function podzialGeograficzny();
 
+    public function ukryteMenu($query = NULL, $param = NULL);
+
     public function leweMenu($query = NULL, $param = NULL);
 
     public function etykietkalMenu();
@@ -39,7 +41,23 @@ class menuWlasciwe implements menuLewe {
         }
     }
 
-    public function leweMenu($query = null, $param = null) {
+public function UkrytaLista() {
+
+        if (sprawdzParametry::isset_woj() && sprawdzParametry::isset_gm()) {
+            $woj = sprawdzParametry::wojewodztwo();
+            $pow = sprawdzParametry::powiat();
+            $query = 'SELECT DISTINCT `Gmina`, `gm`, `Powiat`, `pow`,`Wojewodztwo`, `woj` FROM `podzial_terytorialny` WHERE `woj` = ' . $woj . ' AND `pow` =' . $pow;
+            menuWlasciwe::ukryteMenu($query, 'gminy');
+        } elseif (sprawdzParametry::isset_woj()) {
+            $woj = sprawdzParametry::wojewodztwo();
+            $query = 'SELECT DISTINCT `Powiat`, `pow`,`Wojewodztwo`, `woj` FROM `podzial_terytorialny` WHERE `woj` = ' . $woj;
+            menuWlasciwe::ukryteMenu($query, 'powiaty');
+        } elseif (!sprawdzParametry::isset_woj()) {
+            $query = 'SELECT DISTINCT `Wojewodztwo`, `woj` FROM `podzial_terytorialny` WHERE 1';
+            menuWlasciwe::ukryteMenu($query, 'wojewodztwa');
+        }
+    }
+    public function ukryteMenu($query = null, $param = null) {
 
         $menu = new obrobkaWpisow();
         $temp = mysql_query($query);
@@ -55,9 +73,9 @@ class menuWlasciwe implements menuLewe {
 
                 if (isset($_GET['publicznosc'])) {
                     $publicznosc = $_GET['publicznosc'];
-                    $prawe_menu[$nr_elementu++] = "<li><a href=\"index.php?woj=$id_woj&amp;pow=$id_pow&amp;gm=$id_gm&amp;msc=$miejscowosc&amp;publicznosc=$publicznosc\">" . $element_menu . "</a></li>";
+                    $prawe_menu[$nr_elementu++] = "<li><a href=\"index.php?woj=$id_woj&amp;pow=$id_pow&amp;gm=$id_gm&amp;msc=$miejscowosc&amp;publicznosc=$publicznosc\">" . "Przedszkole ". $element_menu . "</a></li>";
                 } else {
-                    $prawe_menu[$nr_elementu++] = "<li><a href=\"index.php?woj=$id_woj&amp;pow=$id_pow&amp;gm=$id_gm&amp;msc=$miejscowosc\">" . $element_menu . "</a></li>";
+                    $prawe_menu[$nr_elementu++] = "<li><a href=\"index.php?woj=$id_woj&amp;pow=$id_pow&amp;gm=$id_gm&amp;msc=$miejscowosc\">" . "Przedszkole ". $element_menu . "</a></li>";
                 }
             }
         } elseif ($param == 'wojewodztwa') {
@@ -68,9 +86,9 @@ class menuWlasciwe implements menuLewe {
 
                 if (isset($_GET['publicznosc'])) {
                     $publicznosc = $_GET['publicznosc'];
-                    $prawe_menu[$nr_elementu++] = "<li><a href=\"index.php?woj=$id_woj&amp;publicznosc=$publicznosc\">" . $element_menu . "</a></li>";
+                    $prawe_menu[$nr_elementu++] = "<li><a href=\"index.php?woj=$id_woj&amp;publicznosc=$publicznosc\">" . "Przedszkole ". $element_menu . "</a></li>";
                 } else {
-                    $prawe_menu[$nr_elementu++] = "<li><a href=\"index.php?woj=$id_woj\">" . $element_menu . "</a></li>";
+                    $prawe_menu[$nr_elementu++] = "<li><a href=\"index.php?woj=$id_woj\">" . "Przedszkole ". $element_menu . "</a></li>";
                 }
             }
         } elseif ($param == 'powiaty') {
@@ -83,9 +101,9 @@ class menuWlasciwe implements menuLewe {
 
                 if (isset($_GET['publicznosc'])) {
                     $publicznosc = $_GET['publicznosc'];
-                    $prawe_menu[$nr_elementu++] = "<li><a href=\"index.php?woj=$id_woj&amp;pow=$id_pow&amp;publicznosc=$publicznosc\">" . $element_menu . "</a></li>";
+                    $prawe_menu[$nr_elementu++] = "<li><a href=\"index.php?woj=$id_woj&amp;pow=$id_pow&amp;publicznosc=$publicznosc\">" . "Przedszkole ". $element_menu . "</a></li>";
                 } else {
-                    $prawe_menu[$nr_elementu++] = "<li><a href=\"index.php?woj=$id_woj&amp;pow=$id_pow\">" . $element_menu . "</a></li>";
+                    $prawe_menu[$nr_elementu++] = "<li><a href=\"index.php?woj=$id_woj&amp;pow=$id_pow\">" . "Przedszkole ". $element_menu . "</a></li>";
                 }
             }
         } elseif ($param == 'gminy') {
@@ -103,6 +121,78 @@ class menuWlasciwe implements menuLewe {
                     $prawe_menu[$nr_elementu++] = "<li><a href=\"index.php?woj=$id_woj&amp;pow=$id_pow&amp;gm=$id_gm&amp;publicznosc=$publicznosc\">" . $element_menu . "</a></li>";
                 } else {
                     $prawe_menu[$nr_elementu++] = "<li><a href=\"index.php?woj=$id_woj&amp;pow=$id_pow&amp;gm=$id_gm\">" . $element_menu . "</a></li>";
+                }
+            }
+        }
+
+        foreach ($prawe_menu as $el_prawe_menu) {
+            echo $el_prawe_menu;
+        }
+    }
+    public function leweMenu($query = null, $param = null) {
+
+        $menu = new obrobkaWpisow();
+        $temp = mysql_query($query);
+        $nr_elementu = 0;
+        $prawe_menu = Array();
+        if ($param == 'miejscowosci') {
+            while ($msc = mysql_fetch_array($temp)) {
+                $element_menu = $msc[0];
+                $id_gm = $msc['gm'];
+                $id_pow = $msc['pow'];
+                $id_woj = $msc['woj'];
+                $miejscowosc = $msc['miejscowosc'];
+
+                if (isset($_GET['publicznosc'])) {
+                    $publicznosc = $_GET['publicznosc'];
+                    $prawe_menu[$nr_elementu++] = "<li><a href=\"index.php?woj=$id_woj&amp;pow=$id_pow&amp;gm=$id_gm&amp;msc=$miejscowosc&amp;publicznosc=$publicznosc\" rel=\"nofollow\">" . $element_menu . "</a></li>";
+                } else {
+                    $prawe_menu[$nr_elementu++] = "<li><a href=\"index.php?woj=$id_woj&amp;pow=$id_pow&amp;gm=$id_gm&amp;msc=$miejscowosc\" rel=\"nofollow\">" . $element_menu . "</a></li>";
+                }
+            }
+        } elseif ($param == 'wojewodztwa') {
+            while ($msc = mysql_fetch_array($temp)) {
+
+                $element_menu = $menu->maleLitery($msc[0]);
+                $id_woj = $msc['woj'];
+
+                if (isset($_GET['publicznosc'])) {
+                    $publicznosc = $_GET['publicznosc'];
+                    $prawe_menu[$nr_elementu++] = "<li><a href=\"index.php?woj=$id_woj&amp;publicznosc=$publicznosc\" rel=\"nofollow\">" . $element_menu . "</a></li>";
+                } else {
+                    $prawe_menu[$nr_elementu++] = "<li><a href=\"index.php?woj=$id_woj\" rel=\"nofollow\">" . $element_menu . "</a></li>";
+                }
+            }
+        } elseif ($param == 'powiaty') {
+            $nr_elementu = 0;
+            while ($msc = mysql_fetch_array($temp)) {
+
+                $element_menu = $menu->maleLitery($msc[0]);
+                $id_pow = $msc['pow'];
+                $id_woj = $msc['woj'];
+
+                if (isset($_GET['publicznosc'])) {
+                    $publicznosc = $_GET['publicznosc'];
+                    $prawe_menu[$nr_elementu++] = "<li><a href=\"index.php?woj=$id_woj&amp;pow=$id_pow&amp;publicznosc=$publicznosc\" rel=\"nofollow\">" . $element_menu . "</a></li>";
+                } else {
+                    $prawe_menu[$nr_elementu++] = "<li><a href=\"index.php?woj=$id_woj&amp;pow=$id_pow\" rel=\"nofollow\">" . $element_menu . "</a></li>";
+                }
+            }
+        } elseif ($param == 'gminy') {
+            $nr_elementu = 0;
+            while ($msc = mysql_fetch_array($temp)) {
+
+                $element_menu = $menu->maleLitery($msc[0]);
+                $id_gm = $msc['gm'];
+                $id_pow = $msc['pow'];
+                $id_woj = $msc['woj'];
+
+
+                if (isset($_GET['publicznosc'])) {
+                    $publicznosc = $_GET['publicznosc'];
+                    $prawe_menu[$nr_elementu++] = "<li><a href=\"index.php?woj=$id_woj&amp;pow=$id_pow&amp;gm=$id_gm&amp;publicznosc=$publicznosc\" rel=\"nofollow\">" . $element_menu . "</a></li>";
+                } else {
+                    $prawe_menu[$nr_elementu++] = "<li><a href=\"index.php?woj=$id_woj&amp;pow=$id_pow&amp;gm=$id_gm\" rel=\"nofollow\">" . $element_menu . "</a></li>";
                 }
             }
         }
@@ -152,7 +242,15 @@ class menuWlasciwe implements menuLewe {
             $this->leweMenu($query, 'miejscowosci');
         }
     }
-
+    public function ukryteMiejscowosci() {
+        if (isset($_GET['woj']) && isset($_GET['pow'])) {
+            $query = 'SELECT `miejscowosc`, `woj`, `pow`, `gm`, count(*) as `ilosc` FROM `przedszkola` WHERE `woj` = ' . $_GET['woj'] . ' AND `pow` =' . $_GET['pow'] . ' GROUP BY `miejscowosc` ORDER BY `ilosc` DESC LIMIT 0, 5';
+            $this->ukryteMenu($query, 'miejscowosci');
+        } elseif (isset($_GET['woj'])) {
+            $query = 'SELECT `miejscowosc`, `woj`, `pow`, `gm`,   count(*) as `ilosc`  FROM `przedszkola` WHERE `woj` = ' . $_GET['woj'] . ' GROUP BY `miejscowosc` ORDER BY `ilosc` DESC LIMIT 0, 5';
+            $this->ukryteMenu($query, 'miejscowosci');
+        }
+    }
     public function pokazWybraneMiejscowosci() {
 
         if (isset($_GET['woj']) || isset($_GET['pow'])) {
@@ -173,8 +271,30 @@ KONIEC;
         </div>
 KONIEC;
         }
+        
     }
+    public function pokazUkryteMiejscowosci() {
 
+        if (isset($_GET['woj']) || isset($_GET['pow'])) {
+            echo <<< KONIEC
+        <div class="menuMiejcowosci">
+        <h1>Przedszkola</h1>
+
+
+
+        <ul class="disc">
+
+KONIEC;
+            $this->ukryteMiejscowosci();
+
+            echo <<< KONIEC
+        </ul>
+
+        </div>
+KONIEC;
+        }
+        
+    }
     public function okruszkoweMenu($param = null) {
 
         $menu = new obrobkaWpisow();
