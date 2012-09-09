@@ -1,0 +1,23 @@
+<?php 
+$kolor = kolory::zmieniaj(2);
+echo '<div id="titlediv" style="background-color:'. $kolor . '">';
+?>
+    <div class="clearfix container" id="pattern" style="height: 96px;">
+        <div class="row">
+            <div id="titledivlogo"></div><div class="col_12" style="margin-top: -100px; height: 104px;">
+                 
+                <ul class="breadcrumbs hor-list">
+                    <li>                        
+                        <?php
+                        $menuOkruszkowe = new menuWlasciwe(1);
+                        echo $menuOkruszkowe->okruszkoweMenu(1);
+                        ?>
+                    </li>
+                </ul>
+                <?php //require_once 'funkcje/logowanie.php'; ?>
+                <h1><?php metaTagi::pokazTytul(); ?></h1>
+               
+            </div>
+        </div>   
+    </div>
+</div>

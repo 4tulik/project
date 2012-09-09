@@ -1,0 +1,29 @@
+/* You can put your custom font code here here*/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:600);
+
+
+/* Chose background color of Navigation here */
+nav, nav li, nav li li, nav li li:hover, #sidebar {background-color:#045276;}
+li.glowna{margin-top:-7px;}
+li.placowki{ background-color:rgba(0,153,204,0.5); margin-top:-7px;}
+li.naczycielerodzicedzieci{background-color:rgba(255,51,153,0.5); margin-top:-7px;}
+li.dla_rodzicow{ background-color:rgba(204,0,100,1); margin-top:-7px;}
+li.wypromuj_placówke{background-color:rgba(204,0,0,0.7); margin-top:-7px;}
+li.dodaj_placowke{background-color:rgba(0,255,0,0.3); margin-top:-7px;}
+li.wszystkie{ background-color:rgba(1,140,230,1);}
+li.publiczne{background-color:rgba(255,102,0,1);}
+li.niepubliczne{background-color:rgba(51,204,0,1);}
+li.kontakt{background-color:goldenrod; margin-top:-7px;}
+/* Chose background color of Page Title here */
+
+nav span {font-weight:900; font-size: 1.1em}
+/* Chose background pattern of Page Title here */
+#pattern {background-image: header_blueprint.png;}
+
+/* Chose background pattern of body, and color, and fonts! here */
+body {background-color: #e5e5e5; background-image: none}
+body, input, select, textarea {font-family: "Lucida Sans", "Trebuchet MS", Tahoma, sans-serif; }
+
+/* Chose Font used in headings */
+h1, h2 {font-family: "Open Sans", Arial, sans-serif; font-weight: 600 }
+

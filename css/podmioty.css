@@ -1,0 +1,32 @@
+div.podmiot{
+    position: relative;
+    width: 600px;
+    padding: 0px 0px 10px 0px;
+    border-bottom: 1px dotted #eeeeee;
+}
+div.nazwa{
+    position: relative;
+    width: 600px;
+    padding: 1px;
+
+}
+div.adres{
+    width: 600px;
+    padding: 1px;
+}
+
+div.tel{
+    float: left;
+    padding: 1px;
+    width: 600px;
+}
+div.www{
+    font-size: 10px;
+    padding: 1px;
+    width: 600px;
+    height: 20px;
+}
+
+div.mapa{
+    text-align: center;
+}

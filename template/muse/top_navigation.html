@@ -1,0 +1,58 @@
+<nav class="container" style="background-color:#454545" >
+    <select class="mobile-only row clearfix" onchange="window.open(this.options[this.selectedIndex].value,'_top')">
+        <option value="index.php?t=dashboard">Dashboard</option>
+        <option value="tables.php?t=tables">Tables</option>
+        <option value="forms.php?t=forms">Forms</option>
+        <option value="dialogbox.php?t=dialog+boxes">Dialog Boxes</option>
+        <option value="statistics.php?t=statistics">Statistics</option>
+        <option value="gallery.php?t=gallery">Gallery</option>
+        <option value="typography.php?t=typography">Typography</option>
+        <option value="grids.php?t=grids">Grid</option>
+        <option value="calendar.php?t=calendar">Calendar</option>
+        <option value="icons.php?t=icons">Icons</option>
+    </select>
+
+    <ul class="sf-menu mobile-hide row clearfix">
+
+
+
+        <li class="placowki"><a href="index.php?action=przedszkola"><span>Przedszkola</span></a>
+            <ul>
+                <li class="wszystkie"><span><a href="<?php echo a_unsort::SelfAdres()  ?>&amp;publicznosc=2">Wszystkie</a></span></li>
+                <li class="publiczne"><span><a href="<?php echo a_unsort::SelfAdres()  ?>&amp;publicznosc=1">Publiczne</a></span></li>
+                <li class="niepubliczne"><span><a href="<?php echo a_unsort::SelfAdres()  ?>&amp;publicznosc=3">Niepubliczne</a></span></li>
+            </ul>
+        </li>
+        <li class="placowki"><a href="index.php?action=zlobki"><span>Żlobki</span></a>
+            <ul>
+                <li class="wszystkie"><span><a href="<?php echo menuWlasciwe::okruszkoweMenu(2)?>&amp;publicznosc=2">Wszystkie</a></span></li>
+                <li class="publiczne"><span><a href="<?php echo menuWlasciwe::okruszkoweMenu(2)?>&amp;publicznosc=1">Publiczne</a></span></li>
+                <li class="niepubliczne"><span><a href="<?php echo menuWlasciwe::okruszkoweMenu(2)?>&amp;publicznosc=3">Niepubliczne</a>
+            </ul></li>
+        <li class="placowki"><a href="index.php?action=kluby_malucha"><span>Kluby Malucha</span></a></li>
+
+        <li class="naczycielerodzicedzieci"><a href="index.php?action=dla_nauczycieli"><span>Dla nauczycieli</span></a>
+            <ul>
+                <li><span><a href="#">Rozwój</a></span></li>
+                <li><span><a href="#">Scenariusze</a></span></li>
+                <li><span><a href="#">Pozostałe</a></span></li>
+            </ul>
+        </li>
+        <li class="naczycielerodzicedzieci"><a href="index.php?action=dla_rodzicow"><span>Dla rodziców</span></a>
+            <ul>
+                <li><span><a href="#">Porady</a></span></li>
+                <li><span><a href="#">Problemy</a></span></li>
+                <li><span><a href="#">Pozostale</a></span></li>
+            </ul>    </li>    
+        <li class="naczycielerodzicedzieci"><a href="index.php?action=dla_dzieci"><span>Dla dzieci</span></a>
+            <ul>
+                <li><span><a href="#">Czytanki</a></span></li>
+                <li><span><a href="#">Kolorowanki</a></span></li>
+                <li><span><a href="#">Bajki</a></span></li>
+            </ul>        </li>
+
+        <li class="dodaj_placowke"><a href="index.php?action=dodaj"><span>Dodaj placówkę</span></a></li>
+        <li class="kontakt"><a href="index.php?action=kontakt"><span>Kontakt</span></a></li>
+
+    </ul>
+</nav>

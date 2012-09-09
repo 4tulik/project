@@ -1,0 +1,308 @@
+
+<html lang="en-us">
+
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" >
+
+
+        <link rel="apple-touch-con" href="" />
+
+        <title>Muse Admin Panel</title>
+
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+
+        <!-- The Columnal Grid and mobile stylesheet -->
+        <link rel="stylesheet" href="./template/muse/assets/styles/columnal/columnal.css" type="text/css" media="screen" />
+
+        <!-- Fixes for IE -->
+
+        <!--[if lt IE 9]>
+            <link rel="stylesheet" href="assets/styles/columnal/ie.css" type="text/css" media="screen" />
+            <link rel="stylesheet" href="assets/styles/ie8.css" type="text/css" media="screen" />
+            <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+            <script type="text/javascript" src="assets/scripts/flot/excanvas.min.js"></script>
+        <![endif]-->        
+
+
+        <!-- Now that all the grids are loaded, we can move on to the actual styles. --> 
+        <link rel="stylesheet" href="./template/muse/assets/scripts/jqueryui/jqueryui.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="./template/muse/assets/styles/style.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="./template/muse/assets/styles/global.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="./template/muse/assets/styles/config.css" type="text/css" media="screen" />
+
+        <!-- Use CDN on production server -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+        <!-- <script src="assets/scripts/jquery-1.6.4.min.js"></script> -->
+        <!-- <script src="assets/scripts/jqueryui/jquery-ui-1.8.16.custom.min.js"></script> -->
+
+        <!-- Menu -->
+        <link rel="stylesheet" href="./template/muse/assets/scripts/superfish/superfish.css" type="text/css" media="screen" />
+        <script src="./template/muse/assets/scripts/superfish/superfish.js"></script>
+
+        <!-- Adds HTML5 placeholder element to those lesser browsers -->
+        <script src="./template/muse/assets/scripts/jquery.placeholder.1.2.min.shrink.js"></script>
+
+        <!-- Adds charts -->
+        <script type="text/javascript" src="./template/muse/assets/scripts/flot/jquery.flot.min.js"></script>
+        <script type="text/javascript" src="./template/muse/assets/scripts/flot/jquery.flot.pie.min.js"></script>
+        <script type="text/javascript" src="./template/muse/assets/scripts/flot/jquery.flot.stack.min.js"></script>
+
+
+        <!-- Form Validation Engine -->
+        <script src="./template/muse/assets/scripts/formvalidator/jquery.validationEngine.js"></script>
+        <script src="./template/muse/assets/scripts/formvalidator/jquery.validationEngine-en.js"></script>
+        <link rel="stylesheet" href="./template/muse/assets/scripts/formvalidator/validationEngine.jquery.css" type="text/css" media="screen" />
+
+        <!-- Sortable, searchable DataTable -->
+        <script src="./template/muse/assets/scripts/jquery.dataTables.min.js"></script>
+
+        <!-- Custom Tooltips -->
+        <script src="./template/muse/assets/scripts/twipsy.js"></script>
+
+        <!-- WYSIWYG Editor -->
+        <script src="./template/muse/assets/scripts/cleditor/jquery.cleditor.min.js"></script>
+        <link rel="stylesheet" href="./template/muse/assets/scripts/cleditor/jquery.cleditor.css" type="text/css" media="screen" />
+
+        <!-- Form Validation Engine -->
+        <script src="./template/muse/assets/scripts/formvalidator/jquery.validationEngine.js"></script>
+        <script src="./template/muse/assets/scripts/formvalidator/jquery.validationEngine-en.js"></script>
+        <link rel="stylesheet" href="./template/muse/assets/scripts/formvalidator/validationEngine.jquery.css" type="text/css" media="screen" />
+
+        <!-- Fullsized calendars -->
+        <link rel="stylesheet" href="./template/muse/assets/scripts/fullcalendar/fullcalendar.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="./template/muse/assets/scripts/fullcalendar/fullcalendar.print.css" type="text/css" media="print" />
+        <script src="./template/muse/assets/scripts/fullcalendar/fullcalendar.min.js"></script>
+        <script src="./template/muse/assets/scripts/fullcalendar/gcal.js"></script>
+
+        <!-- Colorbox is a lightbox alternative-->
+        <script src="./template/muse/assets/scripts/colorbox/jquery.colorbox-min.js"></script>
+        <link rel="stylesheet" href="./template/muse/assets/scripts/colorbox/colorbox.css" type="text/css" media="screen" />
+
+        <!-- Colorpicker -->
+        <script src="./template/muse/assets/scripts/colorpicker/colorpicker.js"></script>
+        <script src="./template/muse/assets/scripts/muse.js"></script>
+        <link rel="stylesheet" href="./template/muse/assets/scripts/colorpicker/colorpicker.css" type="text/css" media="screen" />
+
+        <!-- All the js used in the demo -->
+        <script src="./template/muse/assets/scripts/demo.js"></script>
+
+        <meta charset="UTF-8"></head>
+    <body>
+        <br/><br/><br/>
+        <div class="clearfix">
+            <div class="col_12 center">
+                <form method="POST" action=" ">
+                    <div class="row clearfix"><div class="col_12">
+                            <div class="widget clearfix">
+
+                                <div class="widget_inside">
+                                    <div class="clearfix col_12">
+
+                                        <div class="col_12">
+                                            <div class="form">
+                                                <style>
+                                                    #ocena_lewo {
+
+                                                        float: left;
+                                                        width: 50%;
+                                                        margin-bottom: 20px;
+                                                    }
+                                                    #ocena_prawo {
+
+                                                        float: right;
+                                                        width: 49%;
+                                                        margin-bottom: 20px;
+
+                                                    }
+                                                </style>
+                                                <div id="ocena_lewo">
+                                                    <script>
+                                                        $(function() {
+                                                            $( "#ocena-nauczyciele" ).slider({
+                                                                range: "min",
+                                                                value: 50,
+                                                                min: 0,
+                                                                max: 100,
+                                                                animate: true,
+                                                                slide: function( event, ui ) {
+                                                                    $( "#nauczyciele" ).val('Ocena: ' + ui.value + ' punktów' );
+                                                                }
+                                                            });
+                                                            $( "#ocena" ).val( "" + $( "#slider-range-min" ).slider( "value" ) );
+                                                        });
+                                                    </script>
+
+                                                    <div class="clearfix">
+
+
+                                                        <label>Nauczyciele:</label>
+                                                        <div class="input"><input type="text" value="Ocena: 50 punktów" id="nauczyciele" disabled="disabled"/></div>
+                                                    </div>
+                                                    <div id="ocena-nauczyciele"></div>
+
+                                                    <!--                                    OK-->
+
+                                                    <script>
+                                                        $(function() {
+                                                            $( "#ocena-wyposazenie" ).slider({
+                                                                range: "min",
+                                                                value: 50,
+                                                                min: 0,
+                                                                max: 100,
+                                                                animate: true,
+                                                                slide: function( event, ui ) {
+                                                                    $( "#wyposazenie" ).val('Ocena: ' + ui.value + ' punktów' );
+                                                                }
+                                                            });
+                                                            $( "#ocena" ).val( "" + $( "#slider-range-min" ).slider( "value" ) );
+                                                        });
+                                                    </script>
+
+                                                    <div class="clearfix">
+                                                        <label>Wyposażenie:</label>
+                                                        <div class="input"><input type="text" value="Ocena: 50 punktów" id="wyposazenie" disabled="disabled"/></div>
+                                                    </div>
+
+                                                    <div id="ocena-wyposazenie"></div>
+                                                    <!--                                OK-->
+                                                    <script>
+                                                        $(function() {
+                                                            $( "#ocena-plac_zabaw" ).slider({
+                                                                range: "min",
+                                                                value: 50,
+                                                                min: 0,
+                                                                max: 100,
+                                                                animate: true,
+                                                                slide: function( event, ui ) {
+                                                                    $( "#placzabaw" ).val('Ocena: ' + ui.value + ' punktów' );
+                                                                }
+                                                            });
+                                                            $( "#ocena" ).val( "" + $( "#slider-range-min" ).slider( "value" ) );
+                                                        });
+                                                    </script>
+
+                                                    <div class="clearfix">
+                                                        <label>Plac Zabaw:</label>
+                                                        <div class="input"><input type="text" value="Ocena: 50 punktów" id="placzabaw" disabled="disabled"/></div>
+                                                    </div>
+
+                                                    <div id="ocena-plac_zabaw"></div>
+                                                    <!--                                OK-->
+                                                </div>
+                                                <div id="ocena_prawo">
+                                                    <script>
+                                                        $(function() {
+                                                            $( "#ocena-zajecia" ).slider({
+                                                                range: "min",
+                                                                value: 50,
+                                                                min: 0,
+                                                                max: 100,
+                                                                animate: true,
+                                                                slide: function( event, ui ) {
+                                                                    $( "#zajecia" ).val('Ocena: ' + ui.value + ' punktów' );
+                                                                }
+                                                            });
+                                                            $( "#ocena" ).val( "" + $( "#slider-range-min" ).slider( "value" ) );
+                                                        });
+                                                    </script>
+
+                                                    <div class="clearfix">
+                                                        <label>Zajęcia:</label>
+                                                        <div class="input"><input type="text" value="Ocena: 50 punktów" id="zajecia" disabled="disabled"/></div>
+                                                    </div>
+
+                                                    <div id="ocena-zajecia"></div>
+                                                    <!--                                OK-->
+                                                    <script>
+                                                        $(function() {
+                                                            $( "#ocena-czystosc" ).slider({
+                                                                range: "min",
+                                                                value: 50,
+                                                                min: 0,
+                                                                max: 100,
+                                                                animate: true,
+                                                                slide: function( event, ui ) {
+                                                                    $( "#czystosc" ).val('Ocena: ' + ui.value + ' punktów' );
+                                                                }
+                                                            });
+                                                            $( "#ocena" ).val( "" + $( "#slider-range-min" ).slider( "value" ) );
+                                                        });
+                                                    </script>
+
+                                                    <div class="clearfix">
+                                                        <label>Czystość:</label>
+                                                        <div class="input"><input type="text" value="Ocena: 50 punktów" id="czystosc" disabled="disabled"/></div>
+                                                    </div>
+
+                                                    <div id="ocena-czystosc"></div>
+                                                    <!--                                OK-->
+
+                                                    <script>
+                                                        $(function() {
+                                                            $( "#ocena-wyzywienie" ).slider({
+                                                                range: "min",
+                                                                value: 50,
+                                                                min: 0,
+                                                                max: 100,
+                                                                animate: true,
+                                                                slide: function( event, ui ) {
+                                                                    $( "#wyzywienie" ).val('Ocena: ' + ui.value + ' punktów' );
+                                                                }
+                                                            });
+                                                            $( "#ocena" ).val( "" + $( "#slider-range-min" ).slider( "value" ) );
+                                                        });
+                                                    </script>
+
+                                                    <div class="clearfix">
+                                                        <label>Wyżywienie:</label>
+                                                        <div class="input"><input type="text" value="Ocena: 50 punktów" id="wyzywienie" disabled="disabled"/></div>
+                                                    </div>
+
+                                                    <div id="ocena-wyzywienie"></div>
+                                                    <!--                                OK-->
+                                                </div>
+                                                <div class="clearfix"> 
+                                                    <label>Treść opinii</label>
+                                                    <div class="input"><textarea class="xxlarge"></textarea></div>
+                                                </div>
+                                                <div class="clearfix">
+                                                    <label>Imię</label>
+                                                    <div class="input">
+                                                        <input type="text" title="Podpisane opinie są bardziej wiarygodne" rel="tooltips" class="medium" />
+
+                                                    </div>
+                                                    <label>Email</label>
+                                                    <div class="input">
+                                                        <input id="email" type="text" class="validate[required,custom[email]] large"/>
+                                                        <span class="info"><strong> Nie będzie publicznie dostępny</strong></span>
+                                                    </div>
+                                                </div>
+
+                                            </div> </div> </div> </div> </div> </div> </div>
+                    <!--                    <div class="col_4 last">
+                                            <div id="horizSlider"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col_12">
+                                    <div class="col_4">
+                                        <h3>Progressbar</h3>
+                                        <p>The progress bar is designed to simply display the current % complete for a process. The bar is coded to be flexibly sized through CSS and will scale to fit inside it's parent container by default.</p>
+                                    </div>
+                                    <div class="col_8 last">
+                                        <div id="progressbar"></div>
+                                        <br />
+                                        <a id="animateProgress" href="#">Animate to random number</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+
+
+                </form>
+            </div></div>
+    </body>
+</html>
