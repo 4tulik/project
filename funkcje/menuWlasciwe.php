@@ -40,8 +40,13 @@ class menuWlasciwe implements menuLewe {
             menuWlasciwe::leweMenu($query, 'wojewodztwa');
         }
     }
+    public function pokazPodzialGeograficzny(){
+        echo "<ul>";
+        menuWlasciwe::podzialGeograficzny();
+        echo "</ul>";
+    }
 
-public function UkrytaLista() {
+    public function UkrytaLista() {
 
         if (sprawdzParametry::isset_woj() && sprawdzParametry::isset_gm()) {
             $woj = sprawdzParametry::wojewodztwo();
@@ -57,6 +62,7 @@ public function UkrytaLista() {
             menuWlasciwe::ukryteMenu($query, 'wojewodztwa');
         }
     }
+    
     public function ukryteMenu($query = null, $param = null) {
 
         $menu = new obrobkaWpisow();
@@ -285,6 +291,7 @@ KONIEC;
         <ul class="disc">
 
 KONIEC;
+            $this->UkrytaLista();
             $this->ukryteMiejscowosci();
 
             echo <<< KONIEC

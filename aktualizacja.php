@@ -1,3 +1,3 @@
 <?php 
-system("zip -r archiwum.zip ./");
+system("unzip -o project.zip");
 ?>

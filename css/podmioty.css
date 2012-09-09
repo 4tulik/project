@@ -30,3 +30,9 @@ div.www{
 div.mapa{
     text-align: center;
 }
+div.disc{
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    
+}
