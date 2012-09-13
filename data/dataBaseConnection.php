@@ -34,7 +34,7 @@ class dataBaseConnection implements DB {
 }
 
 $MysqlDB = new dataBaseConnection();
-$MysqlDB->connect("tulik.home.pl", "tulik", "Vs#iNk,wCi3gKK1h");
+$MysqlDB->connect("tulik.home.pl", "tulik", "************************");
 $MysqlDB->selectdb('tulik');
 mysql_query("SET CHARSET utf8");
 mysql_query("SET NAMES `utf8` COLLATE `utf8_polish_ci`");
